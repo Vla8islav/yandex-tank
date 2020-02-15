@@ -122,6 +122,8 @@ class TankAggregator(object):
         if self.stats_reader:
             logger.debug('Closing stats reader')
             self.stats_reader.close()
+        if self.reader:
+           self.reader.close()
         if self.drain:
             logger.debug('Waiting for gun drain to finish')
             self.drain.join()
